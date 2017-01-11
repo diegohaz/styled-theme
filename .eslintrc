@@ -1,0 +1,13 @@
+{
+  "parser": "babel-eslint",
+  "extends": [
+    "standard"
+  ],
+  "env": {
+    "jest": true
+  },
+  "rules": {
+    "indent": [2, 2],
+    "object-curly-spacing": [2, "always"]
+  }
+}

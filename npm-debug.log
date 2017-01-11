@@ -1,0 +1,165 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'publish' ]
+2 info using npm@4.0.5
+3 info using node@v6.9.1
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   escapedName: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: '/Users/diegohaz/Projects/styled-theme',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory /Users/diegohaz/.npm/styled-theme/0.0.3/package.tgz not in flight; packing
+9 verbose correctMkdir /Users/diegohaz/.npm correctMkdir not in flight; initializing
+10 warn prepublish-on-install As of npm@5, `prepublish` scripts will run only for `npm publish`.
+11 warn prepublish-on-install (In npm@4 and previous versions, it also runs for `npm install`.)
+12 warn prepublish-on-install See the deprecation note in `npm help scripts` for more information.
+13 info lifecycle styled-theme@0.0.3~prepublish: styled-theme@0.0.3
+14 verbose lifecycle styled-theme@0.0.3~prepublish: unsafe-perm in lifecycle true
+15 verbose lifecycle styled-theme@0.0.3~prepublish: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/diegohaz/Projects/styled-theme/node_modules/.bin:/Users/diegohaz/.yarn/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
+16 verbose lifecycle styled-theme@0.0.3~prepublish: CWD: /Users/diegohaz/Projects/styled-theme
+17 silly lifecycle styled-theme@0.0.3~prepublish: Args: [ '-c', 'npm run lint && npm test && npm run build' ]
+18 silly lifecycle styled-theme@0.0.3~prepublish: Returned: code: 0  signal: null
+19 info lifecycle styled-theme@0.0.3~prepare: styled-theme@0.0.3
+20 silly lifecycle styled-theme@0.0.3~prepare: no script for prepare, continuing
+21 verbose tar pack [ '/Users/diegohaz/.npm/styled-theme/0.0.3/package.tgz',
+21 verbose tar pack   '/Users/diegohaz/Projects/styled-theme' ]
+22 verbose tarball /Users/diegohaz/.npm/styled-theme/0.0.3/package.tgz
+23 verbose folder /Users/diegohaz/Projects/styled-theme
+24 verbose addLocalTarball adding from inside cache /Users/diegohaz/.npm/styled-theme/0.0.3/package.tgz
+25 verbose correctMkdir /Users/diegohaz/.npm correctMkdir not in flight; initializing
+26 silly cache afterAdd styled-theme@0.0.3
+27 verbose afterAdd /Users/diegohaz/.npm/styled-theme/0.0.3/package/package.json not in flight; writing
+28 verbose correctMkdir /Users/diegohaz/.npm correctMkdir not in flight; initializing
+29 verbose afterAdd /Users/diegohaz/.npm/styled-theme/0.0.3/package/package.json written
+30 silly publish { name: 'styled-theme',
+30 silly publish   version: '0.0.3',
+30 silly publish   description: 'Theming system for styled-components',
+30 silly publish   license: 'MIT',
+30 silly publish   repository:
+30 silly publish    { type: 'git',
+30 silly publish      url: 'git+https://github.com/diegohaz/styled-theme.git' },
+30 silly publish   main: 'dist/index.js',
+30 silly publish   author:
+30 silly publish    { name: 'Diego Haz',
+30 silly publish      email: 'hazdiego@gmail.com',
+30 silly publish      url: 'github.com/diegohaz' },
+30 silly publish   engines: { node: '>=4' },
+30 silly publish   files: [ 'dist' ],
+30 silly publish   scripts:
+30 silly publish    { test: 'jest',
+30 silly publish      lint: 'eslint src test',
+30 silly publish      coverage: 'npm test -- --coverage && opn coverage/lcov-report/index.html',
+30 silly publish      clean: 'del dist',
+30 silly publish      prebuild: 'npm run clean',
+30 silly publish      build: 'babel src -d dist',
+30 silly publish      patch: 'npm version patch && npm publish',
+30 silly publish      minor: 'npm version minor && npm publish',
+30 silly publish      major: 'npm version major && npm publish',
+30 silly publish      prepublish: 'npm run lint && npm test && npm run build',
+30 silly publish      postpublish: 'git push origin master --follow-tags' },
+30 silly publish   jest: { testRegex: '/test/.*', testEnvironment: 'node' },
+30 silly publish   keywords: [ 'styled-components', 'theme', 'theming' ],
+30 silly publish   dependencies: { lodash: '^4.17.4' },
+30 silly publish   devDependencies:
+30 silly publish    { 'babel-cli': '^6.18.0',
+30 silly publish      'babel-eslint': '^7.1.1',
+30 silly publish      'babel-jest': '^18.0.0',
+30 silly publish      'babel-preset-es2015': '^6.18.0',
+30 silly publish      'babel-preset-stage-2': '^6.18.0',
+30 silly publish      'del-cli': '^0.2.1',
+30 silly publish      eslint: '^3.12.2',
+30 silly publish      'eslint-config-standard': '^6.2.1',
+30 silly publish      'eslint-plugin-promise': '^3.4.0',
+30 silly publish      'eslint-plugin-standard': '^2.0.1',
+30 silly publish      'jest-cli': '^18.1.0',
+30 silly publish      'opn-cli': '^3.1.0' },
+30 silly publish   readme: '# styled-theme\n[![NPM version](https://img.shields.io/npm/v/styled-theme.svg?style=flat-square)](https://npmjs.org/package/styled-theme)\n[![Build Status](https://img.shields.io/travis/diegohaz/styled-theme/master.svg?style=flat-square)](https://travis-ci.org/diegohaz/styled-theme) [![Coverage Status](https://img.shields.io/codecov/c/github/diegohaz/styled-theme/master.svg?style=flat-square)](https://codecov.io/gh/diegohaz/styled-theme/branch/master)\n\n> Theming system for [`styled-components`](https://github.com/styled-components/styled-components)\n\n\n## Install\n\n```\n$ npm install --save styled-theme\n```\n\n\n## Usage\n\n```jsx\nimport styled from \'styled-components\'\nimport { font, palette } from \'styled-theme\'\n\nconst Button = styled.button`\n  font-family: ${font(\'primary\')};\n  background-color: ${palette(1)};\n`\n\nButton.defaultProps = {\n  palette: \'primary\'\n}\n\n...\n\n// renders \n<Button>Hello</Button>\n\n<Button palette="secondary">Hello</Button>\n```\n\n### Basic\n\n`get` and `getColor` use [`lodash\'s get`](https://lodash.com/docs/4.17.4#get) to reach the theme path.\n\n```js\nimport theme, { get, getColor } from \'styled-theme\'\n\nconsole.log(theme) // outputs the entire theme object\n\nget(\'colors\') // { primary: [...], secondary: [...] }\nget(\'colors.primary\') // [\'#1976d2\', \'#2196f3\', \'#71bcf7\', \'#c2e2fb\']\nget(\'reverseColors.primary\') // [\'#c2e2fb\', \'#71bcf7\', \'#2196f3\', \'#1976d2\']\nget(\'colors.primary[0]\') // \'#1976d2\'\nget(\'fonts\') // { primary: \'...\', quote: \'...\' }\nget(\'fonts.primary\') // \'Helvetica Neue, Helvetica, Roboto, sans-serif\'\n\ngetColor(\'primary\') // theme.colors.primary\ngetColor(\'primary[0]\', true) // theme.reverseColors.primary[0]\n```\n\n### Overriding theme\n\nYou can also provide your theme as the last argument.\n\n```js\nimport { get, getColor, reverse } from \'styled-theme\'\n\nconst myTheme = {}\nmyTheme.colors = {\n\tgrayscale: [\'#222\', \'#555\', \'#888\', \'#bbb\', \'#fff\']\n}\nmyTheme.reverseColors = reverse(myTheme.colors)\n\nget(\'colors\', myTheme) // { grayscale: [...] }\nget(\'colors.primary\', myTheme) // styled-theme primary color\nget(\'fonts.primary\', myTheme) // styled-theme primary font\n\ngetColor(\'grayscale\', false, myTheme) // myTheme.colors.grayscale\ngetColor(\'grayscale[0]\', true, myTheme) // myTheme.reverseColors.grayscale[0]\ngetColor(\'primary[0]\', true, myTheme) // theme.reverseColors.primary[0]\n```\n\n### Utilities for [`styled-components`](https://github.com/styled-components/styled-components)\n\n```jsx\nimport styled from \'components\'\nimport { font, color, reverseColor } from \'styled-theme\'\n\nconst Div = styled.div`\n\tfont-family: ${font(\'primary\')};\n\tcolor: ${color(0)};\n\tbackground-color: ${reverseColor(\'grayscale\', 0)}\n`\n\n// color = theme.colors.primary[0]\n// background-color = theme.reverseColors.grayscale[0]\n<Div color="primary" />\n\n// color = theme.reverseColors.primary[0]\n// background-color = theme.colors.primary[0]\n<Div color="primary" reverse />\n```\n\n```jsx\nimport styled from \'components\'\nimport { font, color, reverseColor } from \'styled-theme\'\n\nconst Div = styled.div`\n\tfont-family: ${font(\'primary\')};\n\tcolor: ${color({ grayscale: 0 }, 1)};\n`\n\n// color = theme.colors.primary[1]\n<Div color="primary" />\n\n// Because we defined the exception { grayscale: 0 }\n// color = theme.colors.grayscale[0]\n<Div color="grayscale" />\n```\n\n## API\n\n### get(path: String|Array, [anotherTheme: Object])\n\nReturns the value from `anotherTheme[path]` or `theme[path]`\n\n### getColor(path: String|Array, [reverse: Boolean], [anotherTheme: Object])\n\nReturns the value from `anotherTheme.colors[path]` or `theme.colors[path]`. `colors` will be `reverseColors` if `reverse` is `true`.\n\n### reverse(colors: Object)\n\nReturns a new object with reverse colors.\n\n`colors` must be an object with the following structure:\n```js\nconst colors = {\n\tfoo: [\'bar\', \'baz\'],\n\ta: [\'b\', \'c\']\n}\n\nreverse(colors) // { foo: [\'baz\', \'bar\'], a: [\'c\', \'b\'] }\n```\n\n### key(path: String)(props: Object)\n\nReturns the key in `props.theme[path]` or `theme[path]`.\n\nThis is the same as `get(path, props.theme)`.\n\n### font(path: String)(props: Object)\n\nReturns the font in `props.theme.fonts[path]` or `theme.fonts[path]`.\n\nThis is the same as `get([\'fonts\', path], props.theme)`.\n\n### color(index: Number, [path: String], [exceptions: Object])(props: Object)\n\nReturns the color in `props.theme.colors[path][index]` or `theme.colors[path][index]`. `colors` will be `reverseColors` if `props.reverse` is `true`.\n\nThis is the same as `getColor([path || props.path][index], props.reverse, props.theme)`.\n\nArguments could be passed in any order.\n\n### reverseColor(index: Number, [path: String], [exceptions: Object])(props: Object)\n\nReturns the color in `props.theme.reverseColors[path][index]` or `theme.reverseColors[path][index]`. `reverseColors` will be `colors` if `props.reverse` is `true`.\n\nThis is the same as `getColor([path || props.path][index], !props.reverse, props.theme)`.\n\nArguments could be passed in any order.\n\n### ifProps(needle: Array|String|Object, pass: Any, fail: Any)(props: Object)\n\nReturns `pass` or `fail` according to `needle` result. `needle` can be some of these:\n```js\n\'foo\' // props.foo == true\n[\'foo\', \'bar\'] // props.foo == true && props.bar == true\n\'foo.bar\' // props.foo.bar == true\n[\'foo.bar\', \'baz\'] // props.foo.bar == true && props.baz == true\n{ foo: \'bar\' } // props.foo === \'bar\'\n{ \'foo.bar\': \'baz\' } // props.foo.bar === \'baz\'\n{ foo: \'bar\', baz: true } // props.foo === \'bar\' && props.baz === true\n```\n\n## License\n\nMIT © [Diego Haz](https://github.com/diegohaz)\n',
+30 silly publish   readmeFilename: 'README.md',
+30 silly publish   bugs: { url: 'https://github.com/diegohaz/styled-theme/issues' },
+30 silly publish   homepage: 'https://github.com/diegohaz/styled-theme#readme',
+30 silly publish   _id: 'styled-theme@0.0.3',
+30 silly publish   _shasum: '5b07616e92d9672f0da510ed4e46df94097d112b',
+30 silly publish   _from: '.' }
+31 info lifecycle styled-theme@0.0.3~prepublishOnly: styled-theme@0.0.3
+32 silly lifecycle styled-theme@0.0.3~prepublishOnly: no script for prepublishOnly, continuing
+33 verbose getPublishConfig undefined
+34 silly mapToRegistry name styled-theme
+35 silly mapToRegistry using default registry
+36 silly mapToRegistry registry https://registry.npmjs.org/
+37 silly mapToRegistry data Result {
+37 silly mapToRegistry   raw: 'styled-theme',
+37 silly mapToRegistry   scope: null,
+37 silly mapToRegistry   escapedName: 'styled-theme',
+37 silly mapToRegistry   name: 'styled-theme',
+37 silly mapToRegistry   rawSpec: '',
+37 silly mapToRegistry   spec: 'latest',
+37 silly mapToRegistry   type: 'tag' }
+38 silly mapToRegistry uri https://registry.npmjs.org/styled-theme
+39 verbose publish registryBase https://registry.npmjs.org/
+40 silly publish uploading /Users/diegohaz/.npm/styled-theme/0.0.3/package.tgz
+41 verbose request uri https://registry.npmjs.org/styled-theme
+42 verbose request sending authorization for write operation
+43 info attempt registry request try #1 at 1:53:04 AM
+44 verbose request using bearer token for auth
+45 verbose request id ee2abe6d75f1d36c
+46 http request PUT https://registry.npmjs.org/styled-theme
+47 http 200 https://registry.npmjs.org/styled-theme
+48 verbose headers { 'content-type': 'application/json',
+48 verbose headers   'content-encoding': 'gzip',
+48 verbose headers   'cache-control': 'max-age=300',
+48 verbose headers   'transfer-encoding': 'chunked',
+48 verbose headers   'accept-ranges': 'bytes',
+48 verbose headers   date: 'Wed, 11 Jan 2017 03:53:06 GMT',
+48 verbose headers   via: '1.1 varnish',
+48 verbose headers   connection: 'keep-alive',
+48 verbose headers   'x-served-by': 'cache-gru7127-GRU',
+48 verbose headers   'x-cache': 'MISS',
+48 verbose headers   'x-cache-hits': '0',
+48 verbose headers   'x-timer': 'S1484106784.923785,VS0,VE1100',
+48 verbose headers   vary: 'Accept-Encoding' }
+49 verbose request invalidating /Users/diegohaz/.npm/registry.npmjs.org/styled-theme on PUT
+50 info lifecycle styled-theme@0.0.3~publish: styled-theme@0.0.3
+51 silly lifecycle styled-theme@0.0.3~publish: no script for publish, continuing
+52 info lifecycle styled-theme@0.0.3~postpublish: styled-theme@0.0.3
+53 verbose lifecycle styled-theme@0.0.3~postpublish: unsafe-perm in lifecycle true
+54 verbose lifecycle styled-theme@0.0.3~postpublish: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/diegohaz/Projects/styled-theme/node_modules/.bin:/Users/diegohaz/.yarn/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
+55 verbose lifecycle styled-theme@0.0.3~postpublish: CWD: .
+56 silly lifecycle styled-theme@0.0.3~postpublish: Args: [ '-c', 'git push origin master --follow-tags' ]
+57 silly lifecycle styled-theme@0.0.3~postpublish: Returned: code: 1  signal: null
+58 info lifecycle styled-theme@0.0.3~postpublish: Failed to exec postpublish script
+59 verbose stack Error: styled-theme@0.0.3 postpublish: `git push origin master --follow-tags`
+59 verbose stack Exit status 1
+59 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:279:16)
+59 verbose stack     at emitTwo (events.js:106:13)
+59 verbose stack     at EventEmitter.emit (events.js:191:7)
+59 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:40:14)
+59 verbose stack     at emitTwo (events.js:106:13)
+59 verbose stack     at ChildProcess.emit (events.js:191:7)
+59 verbose stack     at maybeClose (internal/child_process.js:877:16)
+59 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+60 verbose pkgid styled-theme@0.0.3
+61 verbose cwd /Users/diegohaz/Projects/styled-theme
+62 error Darwin 16.3.0
+63 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "publish"
+64 error node v6.9.1
+65 error npm  v4.0.5
+66 error code ELIFECYCLE
+67 error styled-theme@0.0.3 postpublish: `git push origin master --follow-tags`
+67 error Exit status 1
+68 error Failed at the styled-theme@0.0.3 postpublish script 'git push origin master --follow-tags'.
+68 error Make sure you have the latest version of node.js and npm installed.
+68 error If you do, this is most likely a problem with the styled-theme package,
+68 error not with npm itself.
+68 error Tell the author that this fails on your system:
+68 error     git push origin master --follow-tags
+68 error You can get information on how to open an issue for this project with:
+68 error     npm bugs styled-theme
+68 error Or if that isn't available, you can get their info via:
+68 error     npm owner ls styled-theme
+68 error There is likely additional logging output above.
+69 verbose exit [ 1, true ]
