@@ -4,7 +4,7 @@
   "description": "Theming system for styled-components",
   "license": "MIT",
   "repository": "diegohaz/styled-theme",
-  "main": "dist/index.js",
+  "main": "index.js",
   "author": {
     "name": "Diego Haz",
     "email": "hazdiego@gmail.com",
@@ -14,7 +14,9 @@
     "node": ">=4"
   },
   "files": [
-    "dist"
+    "dist",
+    "index.js",
+    "composer.js"
   ],
   "scripts": {
     "test": "jest",
@@ -35,6 +37,8 @@
   },
   "keywords": [
     "styled-components",
+    "styled",
+    "style",
     "theme",
     "theming"
   ],
