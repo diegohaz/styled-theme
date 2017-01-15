@@ -127,7 +127,7 @@ Returns **[Palette](#palette)**
 
 ### key
 
-Returns the value of props.theme[path] or styledTheme[path]
+Returns the value of `props.theme[path]` or `styledTheme[path]`
 
 **Parameters**
 
@@ -190,7 +190,7 @@ The arguments can be passed in any order, as long as types are kept.
 **Parameters**
 
 -   `index` **[number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)** The index of tone in theme palette tones array
--   `path` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** The key of the tones in theme palette object (optional, default `` `props.palette` ``)
+-   `path` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** The key of the tones in theme palette object (optional, default `props.palette`)
 -   `exceptions` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)?** An object with path as key and index as value
 -   `reverse` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)?** Flag to return tone from `reversePalette` or `palette`
 -   `args` **...any** 

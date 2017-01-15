@@ -10,7 +10,7 @@ type Props = {
 }
 
 /**
- * Returns the value of props.theme[path] or styledTheme[path]
+ * Returns the value of `props.theme[path]` or `styledTheme[path]`
  * @example
  * const Button = styled.button`
  *  font-family: ${key('fonts.primary')};
@@ -44,7 +44,7 @@ export const size = (path: string): Size => key(['sizes', path])
  *
  * The arguments can be passed in any order, as long as types are kept.
  * @param {number} index The index of tone in theme palette tones array
- * @param {string} [path=`props.palette`] The key of the tones in theme palette object
+ * @param {string} [path=props.palette] The key of the tones in theme palette object
  * @param {Object} [exceptions] An object with path as key and index as value
  * @param {boolean} [reverse] Flag to return tone from `reversePalette` or `palette`
  * @example
