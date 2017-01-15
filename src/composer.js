@@ -1,8 +1,14 @@
-export const coolors = (url) =>
-  url.replace(/^.+\/([^/]+)$/, '$1').split('-').map(hex => `#${hex}`)
+// @flow
+import type { Palette } from './types'
 
-export const reversePalette = palette =>
-  Object.keys(palette).reduce((newPalette, key) => {
-    newPalette[key] = [ ...palette[key] ].reverse()
-    return newPalette
-  }, {})
+/**
+ * Revert the palette
+ * @example
+ * reversePalette({ primary: ['red', 'yellow', 'green'] })
+ * // { primary: ['green', 'yellow', 'red'] }
+ */
+export const reversePalette = (palette: Palette): Palette =>
+  Object.keys(palette).reduce((newPalette, key) => ({
+    ...newPalette,
+    [key]: [...palette[key]].reverse()
+  }), {})

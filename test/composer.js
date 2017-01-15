@@ -1,9 +1,4 @@
-import { coolors, reversePalette } from '../src/composer'
-
-test('coolors', () => {
-  expect(coolors('https://coolors.co/1976d2-2196f3-71bcf7-97cef9-c2e2fb'))
-    .toEqual(['#1976d2', '#2196f3', '#71bcf7', '#97cef9', '#c2e2fb'])
-})
+import { reversePalette } from '../src/composer'
 
 test('reversePalette', () => {
   const palette = {

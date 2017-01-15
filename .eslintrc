@@ -1,13 +1,20 @@
 {
   "parser": "babel-eslint",
   "extends": [
-    "standard"
+    "airbnb-base",
+    "plugin:flowtype/recommended"
+  ],
+  "plugins": [
+    "flowtype",
+    "flowtype-errors"
   ],
   "env": {
     "jest": true
   },
   "rules": {
-    "indent": [2, 2],
-    "object-curly-spacing": [2, "always"]
+    "semi": [2, never],
+    "comma-dangle": 0,
+    "flowtype-errors/show-errors": 2,
+    "import/prefer-default-export": 0
   }
 }
