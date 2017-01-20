@@ -1,7 +1,4 @@
-import get from 'lodash/get'
-import at from 'lodash/at'
-import values from 'lodash/values'
-import difference from 'lodash/difference'
+import { get } from 'styled-tools'
 import theme from './theme'
 import type { Theme, Tones, Font, Size } from './types'
 
@@ -17,8 +14,8 @@ type Props = {
  *  color: ${key(['colors', 'primary', 0])};
  * `
  */
-export const key = (path: string | Array<string>): any => (props: Props = {}) =>
-  get(props.theme, path, get(theme, path))
+export const key = (path: string | string[], defaultValue?: any): any =>
+  (props: Props = {}): any => get(path, get(path, defaultValue)(theme))(props.theme)
 
 /**
  * Shorthand to `key(['fonts', path])`
@@ -27,7 +24,8 @@ export const key = (path: string | Array<string>): any => (props: Props = {}) =>
  *  font-family: ${font('primary')};
  * `
  */
-export const font = (path: string): Font => key(['fonts', path])
+export const font = (path: string, defaultValue?: any): Font =>
+  key(['fonts', path], defaultValue)
 
 /**
  * Shorthand to `key(['sizes', path])`
@@ -36,7 +34,8 @@ export const font = (path: string): Font => key(['fonts', path])
  *  padding: ${size('padding')};
  * `
  */
-export const size = (path: string): Size => key(['sizes', path])
+export const size = (path: string, defaultValue?: any): Size =>
+  key(['sizes', path], defaultValue)
 
 /**
  * Returns the value of `props.theme[palette || reversePalette][path][index]` or
@@ -47,6 +46,7 @@ export const size = (path: string): Size => key(['sizes', path])
  * @param {string} [path=props.palette] The key of the tones in theme palette object
  * @param {Object} [exceptions] An object with path as key and index as value
  * @param {boolean} [reverse] Flag to return tone from `reversePalette` or `palette`
+ * @param {string} [defaultValue] Default value
  * @example
  * // index = 1
  * // exception = { grayscale: 0 }
@@ -65,6 +65,7 @@ export const size = (path: string): Size => key(['sizes', path])
 export const palette = (...args) => (props: Props = {}): Tones => {
   const exceptions = args.find(arg => typeof arg === 'object') || {}
   const path = args.find(arg => typeof arg === 'string') || props.palette
+  const defaultValue = [...args].reverse().find(arg => typeof arg === 'string')
   let index = args.find(arg => typeof arg === 'number')
   let reverse = args.find(arg => typeof arg === 'boolean')
   reverse = reverse ? !props.reverse : props.reverse
@@ -81,34 +82,5 @@ export const palette = (...args) => (props: Props = {}): Tones => {
   }
 
   const palettePath = reverse ? 'reversePalette' : 'palette'
-  return key([palettePath, path, index])(props)
+  return key([palettePath, path, index], defaultValue !== path && defaultValue)(props)
 }
-
-/**
- * Returns pass if prop is truthy. Otherwise returns fail
- * @example
- * const Button = styled.button`
- *  background-color: ${ifProp('transparent', 'transparent', palette(0))};
- *  color: ${ifProp(['transparent', 'accent'], palette('secondary', 0))};
- *  font-size: ${ifProp({ size: 'large' }, '20px', ifProp({ size: 'medium' }, '16px', '12px'))};
- *`
- */
-export const ifProp = (
-  needle: string | string[] | Object,
-  pass?: any,
-  fail?: any
-) => (props = {}) => {
-  let result
-  if (Array.isArray(needle)) {
-    result = !at(props, needle).filter(value => !value).length
-  } else if (typeof needle === 'object') {
-    const needleKeys = Object.keys(needle)
-    const needleValues = values(needle)
-    result = !difference(at(props, needleKeys), needleValues).length
-  } else {
-    result = get(props, needle)
-  }
-  return result ? pass : fail
-}
-
-export default theme

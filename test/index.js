@@ -1,5 +1,5 @@
 import theme from '../src/theme'
-import { key, font, palette, size, ifProp } from '../src'
+import { key, font, palette, size } from '../src'
 
 describe('key', () => {
   const theme2 = {
@@ -12,6 +12,10 @@ describe('key', () => {
 
   it('returns value from anotherTheme when passed in', () => {
     expect(key('foo')({ theme: theme2 })).toBe(theme2.foo)
+  })
+
+  it('returns defaultValue', () => {
+    expect(key('foo', 'baz')()).toBe('baz')
   })
 })
 
@@ -28,6 +32,10 @@ describe('size', () => {
 
   it('returns value from anotherTheme when passed in', () => {
     expect(size('foo')({ theme: theme2 })).toBe(theme2.sizes.foo)
+  })
+
+  it('returns defaultValue', () => {
+    expect(size('foo', 'baz')()).toBe('baz')
   })
 })
 
@@ -51,6 +59,10 @@ describe('font', () => {
   it('returns anotherTheme font when it exists', () => {
     expect(font('foo')({ theme: theme2 })).toBe(theme2.fonts.foo)
     expect(font('pre')({ theme: theme2 })).toBe(theme2.fonts.pre)
+  })
+
+  it('returns defaultValue', () => {
+    expect(font('foo', 'baz')()).toBe('baz')
   })
 })
 
@@ -100,41 +112,9 @@ describe('palette', () => {
     expect(palette(1, true)({ theme: theme2, palette: 'danger' }))
       .toBe(theme.reversePalette.danger[1])
   })
-})
 
-describe('ifProp', () => {
-  it('handles string needle', () => {
-    expect(ifProp('foo', 'yes', 'no')()).toBe('no')
-    expect(ifProp('foo', 'yes', 'no')({ foo: true })).toBe('yes')
-    expect(ifProp('foo', 'yes', 'no')({ foo: false })).toBe('no')
-  })
-
-  it('handles deep string needle', () => {
-    expect(ifProp('foo.bar', 'yes', 'no')({ foo: { bar: true } })).toBe('yes')
-    expect(ifProp('foo.bar', 'yes', 'no')({ foo: { bar: false } })).toBe('no')
-  })
-
-  it('handles array needle', () => {
-    expect(ifProp(['foo'], 'yes', 'no')({ bar: false, foo: true })).toBe('yes')
-    expect(ifProp(['foo', 'bar'], 'yes', 'no')({ bar: true, foo: true })).toBe('yes')
-    expect(ifProp(['foo', 'bar'], 'yes', 'no')({ foo: true, bar: false })).toBe('no')
-  })
-
-  it('handles deep array needle', () => {
-    expect(ifProp(['foo.bar', 'baz'], 'yes', 'no')({ baz: true, foo: { bar: true } })).toBe('yes')
-    expect(ifProp(['foo.bar', 'baz'], 'yes', 'no')({ foo: { bar: true }, baz: false })).toBe('no')
-    expect(ifProp(['foo.bar', 'baz'], 'yes', 'no')({ foo: { bar: false }, baz: true })).toBe('no')
-  })
-
-  it('handles object needle', () => {
-    expect(ifProp({ foo: 'ok' }, 'yes', 'no')({ foo: 'ok' })).toBe('yes')
-    expect(ifProp({ foo: 'ok' }, 'yes', 'no')({ foo: 'not ok' })).toBe('no')
-    expect(ifProp({ foo: 'ok', bar: 'ok' }, 'yes', 'no')({ bar: 'ok', foo: 'ok' })).toBe('yes')
-    expect(ifProp({ foo: 'ok', bar: 'ok' }, 'yes', 'no')({ foo: 'not ok', bar: 'ok' })).toBe('no')
-  })
-
-  it('handles deep object needle', () => {
-    expect(ifProp({ 'foo.bar': 'ok' }, 'yes', 'no')({ foo: { bar: 'ok' } })).toBe('yes')
-    expect(ifProp({ 'foo.bar': 'ok' }, 'yes', 'no')({ foo: { bar: 'no' } })).toBe('no')
+  it('returns defaultValue', () => {
+    expect(palette('foo', 1, 'red')()).toBe('red')
+    expect(palette('foo', 1, 'red')({ theme: theme2 })).toBe(theme2.palette.foo[1])
   })
 })

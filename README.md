@@ -133,6 +133,7 @@ Returns the value of `props.theme[path]` or `styledTheme[path]`
 **Parameters**
 
 -   `path` **([string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)>)** 
+-   `defaultValue` **any** 
 
 **Examples**
 
@@ -152,6 +153,7 @@ Shorthand to `key(['fonts', path])`
 **Parameters**
 
 -   `path` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+-   `defaultValue` **any** 
 
 **Examples**
 
@@ -170,6 +172,7 @@ Shorthand to `key(['sizes', path])`
 **Parameters**
 
 -   `path` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+-   `defaultValue` **any** 
 
 **Examples**
 
@@ -194,6 +197,7 @@ The arguments can be passed in any order, as long as types are kept.
 -   `path` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** The key of the tones in theme palette object (optional, default `props.palette`)
 -   `exceptions` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)?** An object with path as key and index as value
 -   `reverse` **[boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)?** Flag to return tone from `reversePalette` or `palette`
+-   `defaultValue` **[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)?** Default value
 -   `args` **...any** 
 
 **Examples**
@@ -214,26 +218,6 @@ const Button = styled.button`
 ```
 
 Returns **[Tones](#tones)** 
-
-### ifProp
-
-Returns pass if prop is truthy. Otherwise returns fail
-
-**Parameters**
-
--   `needle` **([string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) \| [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[string](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)> | [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object))** 
--   `pass` **any** 
--   `fail` **any** 
-
-**Examples**
-
-```javascript
-const Button = styled.button`
- background-color: ${ifProp('transparent', 'transparent', palette(0))};
- color: ${ifProp(['transparent', 'accent'], palette('secondary', 0))};
- font-size: ${ifProp({ size: 'large' }, '20px', ifProp({ size: 'medium' }, '16px', '12px'))};
-`
-```
 
 ### Tone
 
