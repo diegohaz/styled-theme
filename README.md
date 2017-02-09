@@ -251,6 +251,10 @@ Type: {}
 
 Type: {palette: [Palette](#palette)?, reversePalette: [Palette](#palette)?, fonts: [Fonts](#fonts)?, sizes: [Sizes](#sizes)?}
 
+## Related
+
+- [styled-tools](https://github.com/diegohaz/styled-tools) - Utilities for styled-components (like lodash)
+
 ## License
 
 MIT © [Diego Haz](https://github.com/diegohaz)
