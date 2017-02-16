@@ -1,6 +1,6 @@
 {
   "name": "styled-theme",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "Theming system for styled-components",
   "license": "MIT",
   "repository": "diegohaz/styled-theme",
