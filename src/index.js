@@ -1,9 +1,12 @@
-import { get } from 'styled-tools'
+// @flow
+import { prop } from 'styled-tools'
 import theme from './theme'
 import type { Theme, Tones, Font, Size } from './types'
 
 type Props = {
-  theme?: Theme
+  theme?: Theme,
+  palette?: string,
+  reverse?: boolean
 }
 
 /**
@@ -15,7 +18,7 @@ type Props = {
  * `
  */
 export const key = (path: string | string[], defaultValue?: any): any =>
-  (props: Props = {}): any => get(path, get(path, defaultValue)(theme))(props.theme)
+  (props: Props = {}): any => prop(path, prop(path, defaultValue)(theme))(props.theme)
 
 /**
  * Shorthand to `key(['fonts', path])`
@@ -62,7 +65,7 @@ export const size = (path: string, defaultValue?: any): Size =>
  * <Button palette="danger" reverse />
  * @returns {Tones}
  */
-export const palette = (...args) => (props: Props = {}): Tones => {
+export const palette = (...args: any[]) => (props: Props = {}): Tones => {
   const exceptions = args.find(arg => typeof arg === 'object') || {}
   const path = args.find(arg => typeof arg === 'string') || props.palette
   const defaultValue = [...args].reverse().find(arg => typeof arg === 'string')
