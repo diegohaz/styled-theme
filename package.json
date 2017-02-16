@@ -50,7 +50,7 @@
   ],
   "dependencies": {
     "coolors-to-hex": "^1.0.0",
-    "styled-tools": "^0.1.1"
+    "styled-tools": "^0.1.4"
   },
   "devDependencies": {
     "babel-cli": "^6.18.0",
