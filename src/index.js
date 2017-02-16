@@ -65,7 +65,8 @@ export const size = (path: string, defaultValue?: any): Size =>
  * <Button palette="danger" reverse />
  * @returns {Tones}
  */
-export const palette = (...args: any[]) => (props: Props = {}): Tones => {
+// eslint-disable-next-line flowtype-errors/show-errors
+export const palette = (...args) => (props: Props = {}): Tones => {
   const exceptions = args.find(arg => typeof arg === 'object') || {}
   const path = args.find(arg => typeof arg === 'string') || props.palette
   const defaultValue = [...args].reverse().find(arg => typeof arg === 'string')
