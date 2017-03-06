@@ -12,8 +12,7 @@ Theming system for [styled-components 💅](https://github.com/styled-components
 
 ## Usage
 
-Play with it on [WebpackBin](https://www.webpackbin.com/bins/-KeZMGAd5qTGOx4Y_Yut)
-
+Play with it on [WebpackBin](https://www.webpackbin.com/bins/-KeZ9npQJtCRUBnaJmwY) (`Menu` > `Copy bin` to edit)
 ```js
 import styled from 'styled-components'
 import { font, palette } from 'styled-theme' 
