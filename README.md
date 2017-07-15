@@ -1,5 +1,7 @@
 # styled-theme 💅🏿
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/diegohaz/styled-theme.svg)](https://greenkeeper.io/)
+
 [![Generated with nod](https://img.shields.io/badge/generator-nod-2196F3.svg?style=flat-square)](https://github.com/diegohaz/nod)
 [![NPM version](https://img.shields.io/npm/v/styled-theme.svg?style=flat-square)](https://npmjs.org/package/styled-theme)
 [![Build Status](https://img.shields.io/travis/diegohaz/styled-theme/master.svg?style=flat-square)](https://travis-ci.org/diegohaz/styled-theme) [![Coverage Status](https://img.shields.io/codecov/c/github/diegohaz/styled-theme/master.svg?style=flat-square)](https://codecov.io/gh/diegohaz/styled-theme/branch/master)
